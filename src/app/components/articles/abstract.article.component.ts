@@ -1,6 +1,6 @@
-import { NormalArticle } from "src/app/model/article";
+import { Article, NormalArticle } from "src/app/model/article";
 
 export abstract class AbstractArticleComponent {
 
-    abstract article: NormalArticle;
+    abstract article: Article;
 }

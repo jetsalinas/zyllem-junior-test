@@ -29,7 +29,7 @@ export class ArticleRendererComponent implements OnInit {
                 const hostElement = <HTMLElement>componentRef.location.nativeElement;
 
                 hostElement.classList.add('article-item');
-                hostElement.insertAdjacentElement("afterbegin", this.addArticleTitle(article.title));
+                // hostElement.insertAdjacentElement("afterbegin", this.addArticleTitle(article.title));
 
                 componentRef.instance.article = article;
                 componentRef.changeDetectorRef.detectChanges();

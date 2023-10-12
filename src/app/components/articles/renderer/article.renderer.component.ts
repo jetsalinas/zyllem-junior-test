@@ -3,7 +3,7 @@ import {
     OnInit, ViewContainerRef
 } from "@angular/core";
 import { Article } from "src/app/model/article";
-import { articleMapper } from "./article.mapper";
+import { articleMapper } from "../article.mapper";
 
 @Component({
     selector: 'article-renderer-component',
@@ -27,7 +27,6 @@ export class ArticleRendererComponent implements OnInit {
                 const componentRef = this.viewContainerRef.createComponent(componentFactory);
 
                 const hostElement = <HTMLElement>componentRef.location.nativeElement;
-
                 hostElement.classList.add('article-item');
                 // hostElement.insertAdjacentElement("afterbegin", this.addArticleTitle(article.title));
 

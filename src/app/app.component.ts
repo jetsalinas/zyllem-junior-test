@@ -17,10 +17,16 @@ export class AppComponent implements OnInit {
   ) { }
 
   private results: Article[];
+  private active: Article[];
   videoArticleHighlight: VideoArticle;
+  articleFilter: string;
 
   get articles() {
     return this.results;
+  }
+
+  get activeArticles() {
+    return this.active;
   }
 
   setVideoHighlight(event: VideoArticle): void {
@@ -28,11 +34,23 @@ export class AppComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  setFilter(event: string) {
+    this.articleFilter = event;
+    if (event === "ALL") {
+      this.active = this.results;
+    } else {
+      this.active = this.results.filter((obj) => { return obj.type === event; });
+    }
+    
+    this.cdr.detectChanges;
+  }
+
   ngOnInit(): void {
 
     this.apiService.getArticles()
       .subscribe(result => {
         this.results = result;
+        this.active = result;
         this.cdr.markForCheck();
       });
   }

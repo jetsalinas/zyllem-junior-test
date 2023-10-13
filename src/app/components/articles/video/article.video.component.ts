@@ -9,7 +9,7 @@ import { AbstractArticleComponent } from "../abstract.article.component";
     templateUrl: './article.video.component.html',
     styleUrls: ['./article.video.component.scss']
 })
-export class ArticleVideoComponent extends AbstractArticleComponent implements OnChanges{
+export class ArticleVideoComponent extends AbstractArticleComponent{
 
     @Input() article: VideoArticle;
 
@@ -23,8 +23,4 @@ export class ArticleVideoComponent extends AbstractArticleComponent implements O
         super();
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        console.log("Change!")
-        console.log(changes)
-    }
 }

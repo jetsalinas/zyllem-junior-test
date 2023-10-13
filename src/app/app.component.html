@@ -20,13 +20,13 @@
 
   <!-- Feel free to remove this holder -->
   <h3>List of article goes here: (do not include the recently published video article in the list if you already placed it at the top)</h3>
-  <article-filter-component></article-filter-component>
+  <article-filter-component (filteredArticleChange)="setFilter($event)"></article-filter-component>
 
   <!-- To put the articles inside this container -->
   <div class="article-container">
     <div class="article-list-holder">
       <ng-container *ngIf="articles">
-        <article-renderer-component [articles]="articles" (featuredVideoArticleChange)="setVideoHighlight($event)"></article-renderer-component>
+        <article-renderer-component [articles]="active" (featuredVideoArticleChange)="setVideoHighlight($event)"></article-renderer-component>
       </ng-container>
     </div>
   </div>

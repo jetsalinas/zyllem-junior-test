@@ -7,21 +7,22 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class ArticleFilterComponent implements OnInit {
 
     filteredArticle: string;
-    @Output() filterArticleChange: EventEmitter<string> = new EventEmitter();
+    @Output() filteredArticleChange: EventEmitter<string> = new EventEmitter();
 
     private ARTICLE_TYPES = [
+        {label: "All", index: "ALL"},
         {label: "Normal", index: "NORMAL"},
         {label: "Video", index: "VIDEO"},
-        {label: "Feature", index: "FEATURE"},
-        {label: "Ad", index: "FEATURE_AD"},        
+        {label: "Feature", index: "FEATURED"},
+        {label: "Ad", index: "FEATURED_AD"},        
     ]
 
     ngOnInit(): void {
         
     }
 
-    setFilter(filter) {
+    setFilter(filter: string) {
         this.filteredArticle = filter
-        this.filterArticleChange.emit(filter);
+        this.filteredArticleChange.emit(filter);
     }
 };

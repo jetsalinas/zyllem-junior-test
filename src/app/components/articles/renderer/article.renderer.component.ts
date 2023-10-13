@@ -1,6 +1,6 @@
 import {
     Component, ComponentFactoryResolver, Input,
-    OnInit, ViewContainerRef, Output, EventEmitter
+    OnInit, ViewContainerRef, Output, EventEmitter, OnChanges, SimpleChanges
 } from "@angular/core";
 import { Article } from "src/app/model/article";
 import { articleMapper } from "../article.mapper";
@@ -10,7 +10,7 @@ import { articleMapper } from "../article.mapper";
     template: '',
     styleUrls: ['./article.renderer.component.scss']
 })
-export class ArticleRendererComponent implements OnInit {
+export class ArticleRendererComponent implements OnInit, OnChanges {
 
     @Input() articles: Article[];
     @Input() featuredVideoArticle: Article = null;
@@ -22,6 +22,16 @@ export class ArticleRendererComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.viewContainerRef.clear();
+        this.renderArticles();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.viewContainerRef.clear();
+        this.renderArticles();
+    }
+
+    renderArticles() {
         for (const article of this.articles) {
             const resolveArticle = articleMapper.get(article.type);
 

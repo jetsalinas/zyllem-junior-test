@@ -59,12 +59,4 @@ export class ArticleRendererComponent implements OnInit, OnChanges {
             }
         }
     }
-
-    private addArticleTitle(title: string) {
-        const heading = document.createElement('h2');
-        heading.classList.add('article-title');
-        heading.innerText = title;
-        heading.title = title;
-        return heading;
-    }
 }

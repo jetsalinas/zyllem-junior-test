@@ -1,5 +1,8 @@
 # Zyllem Front End Test
 
+## Notes
+Tested on Node 16.16.0
+
 ## Requirement
 
 Build a simple application to show a list of articles. There are two types of article.

@@ -41,6 +41,9 @@ export class ArticleRendererComponent implements OnInit, OnChanges {
                     this.featuredVideoArticleChange.emit(article);
                     continue;
                 }
+                if (this.featuredVideoArticle == article) {
+                    continue;
+                }
 
                 const componentFactory = this.componentFactoryResolver.resolveComponentFactory(resolveArticle);
                 const componentRef = this.viewContainerRef.createComponent(componentFactory);

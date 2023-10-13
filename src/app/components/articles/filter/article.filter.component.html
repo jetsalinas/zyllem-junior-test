@@ -1,3 +1,3 @@
 <div class="filter-container">
-    <button *ngFor="let kind of ARTICLE_TYPES" (click)="setFilter(kind.index)">{{ kind.label }}</button>
+    <button *ngFor="let kind of ARTICLE_TYPES" (click)="setFilter(kind.index)" class="filter-button">{{ kind.label }}</button>
 </div>

@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
     selector: 'article-filter-component',
-    templateUrl: './article.filter.component.html'
+    templateUrl: './article.filter.component.html',
+    styleUrls: ['./article.filter.component.scss']
 })
 export class ArticleFilterComponent implements OnInit {
 

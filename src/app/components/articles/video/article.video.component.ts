@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { VideoArticle } from "src/app/model/article";
@@ -9,7 +9,7 @@ import { AbstractArticleComponent } from "../abstract.article.component";
     templateUrl: './article.video.component.html',
     styleUrls: ['./article.video.component.scss']
 })
-export class ArticleVideoComponent extends AbstractArticleComponent {
+export class ArticleVideoComponent extends AbstractArticleComponent implements OnChanges{
 
     @Input() article: VideoArticle;
 
@@ -21,5 +21,10 @@ export class ArticleVideoComponent extends AbstractArticleComponent {
         private readonly domSanitize: DomSanitizer
     ) {
         super();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log("Change!")
+        console.log(changes)
     }
 }

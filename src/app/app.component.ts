@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy, ChangeDetectorRef, Component,
   OnInit
 } from '@angular/core';
@@ -10,7 +11,7 @@ import { Article, VideoArticle } from './model/article';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 
@@ -26,11 +27,19 @@ export class AppComponent implements OnInit {
     return this.results;
   }
 
+  setVideoHighlight(event: VideoArticle): void {
+    this.videoArticleHighlight = event;
+    this.cdr.detectChanges();
+  }
+
   ngOnInit(): void {
+
     this.apiService.getArticles()
       .subscribe(result => {
         this.results = result;
         this.cdr.markForCheck();
       });
   }
+
+
 }

@@ -14,6 +14,7 @@
   <div class="article-video">
     <ng-container *ngIf="videoArticleHighlight">
       <!-- put the title and the article video component here -->
+      <article-video-component [article]="videoArticleHighlight"></article-video-component>
     </ng-container>
   </div>
 
@@ -24,10 +25,11 @@
   <div class="article-container">
     <div class="article-list-holder">
       <ng-container *ngIf="articles">
-        <article-renderer-component [articles]="articles"></article-renderer-component>
+        <article-renderer-component [articles]="articles" (featuredVideoArticleChange)="setVideoHighlight($event)"></article-renderer-component>
       </ng-container>
     </div>
-  </div><!--.article-container-->
+  </div>
+  <!--.article-container-->
   
   <div class="bonus-point-container">
     <h3>Instructions:</h3>

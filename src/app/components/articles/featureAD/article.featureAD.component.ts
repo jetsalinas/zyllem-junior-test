@@ -5,7 +5,8 @@ import { AbstractArticleComponent } from "../abstract.article.component";
 
 @Component({
     selector: 'article-featureAD-component',
-    templateUrl: './article.featureAD.component.html'
+    templateUrl: './article.featureAD.component.html',
+    styles: ['img {max-width: 100%};']
 })
 export class ArticleFeatureADComponent extends AbstractArticleComponent {
 

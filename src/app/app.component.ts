@@ -1,8 +1,4 @@
-import {
-  AfterViewChecked,
-  ChangeDetectionStrategy, ChangeDetectorRef, Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { ZyllemApiService } from "./app.service";
 import { Article, VideoArticle } from './model/article';
